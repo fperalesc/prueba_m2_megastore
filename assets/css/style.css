@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "smooch sans", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+}
+
+/* LAYOUT MOBILE */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "menu"
+    "filtro"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem 6rem 1fr 5rem;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+
+menu {
+  grid-area: menu;
+  background-color: rgb(25, 25, 25);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+menu div h1 {
+  font-size: larger;
+  font-weight: 400;
+}
+
+menu div img {
+  width: 2rem;
+}
+
+.filtro {
+  grid-area: filtro;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url(../imgs/bg-main.jpg);
+  background-position: center;
+  background-repeat: repeat;
+  background-color: black;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(43, 42, 42);
+  color: white;
+}
+
+.menu-nav {
+  display: none;
+}
+
+.logo-tienda {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.boton-barras {
+  font-size: larger;
+}
+
+#opciones {
+  width: 80%;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem;
+  transition: all 0.5s;
+  color: white;
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: rgb(255, 0, 0);
+  opacity: 0.8;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconos {
+  font-size: larger;
+  padding: 0.1rem;
+  transition: all 0.5s;
+}
+
+h2 {
+  background-color: rgba(255, 0, 0, 0.6);
+  width: 95%;
+  text-align: center;
+  color: rgb(216, 213, 213);
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+  color: #ffffff;
+}
+
+/* visited link */
+a:visited {
+  color: #ffffff;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* selected link */
+a:active {
+  color: #ff0000;
+}
+
+menu {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+span {
+  text-decoration: line-through;
+}
+
+@media (max-width: 575px) {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .cards {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* LAYOUT DESKTOP */
+@media (min-width: 576px) {
+  .grid-container {
+    grid-template-areas:
+      "menu filtro"
+      "menu main"
+      "footer main";
+    grid-template-columns: 10rem 1fr;
+    grid-template-rows: 5.5rem 1fr 10rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .card {
+    width: 21rem;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0;
+    border-radius: 10px;
+    padding: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+    row-gap: 2.5rem;
+    padding: 1.5rem;
+  }
+
+  .boton-barras {
+    display: none;
+  }
+  .menu-nav {
+    display: flex;
+  }
+
+  .menu-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-nav li {
+    list-style-type: none;
+  }
+
+  menu {
+    flex-direction: column;
+    justify-content: start;
+    gap: 1rem;
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  main {
+    overflow: auto;
+    background-repeat: no-repeat;
+  }
+
+  .card:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+    border: 1px solid rgb(137, 137, 137);
+  }
+
+  footer p {
+    font-size: 1.2rem;
+  }
+
+  .filtro {
+    padding: 0.7rem;
+  }
+
+  #opciones {
+    width: 50%;
+  }
+}
+
+li:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+}
+
+#opciones:hover {
+  cursor: pointer;
+}
+
+.iconos:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+footer p {
+  transition: all 0.5s;
+}
+
+footer p:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+menu div img {
+  transition: all 4s 1s;
+}
+
+/* EASTER EGG LOGO */
+menu div img:hover {
+  transform: rotate(360deg);
+}
+
+@media (min-width: 1920px) {
+  .card {
+    width: 25rem;
+  }
+}
